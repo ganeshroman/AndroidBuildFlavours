@@ -39,4 +39,89 @@ android {
 
 ```
 
+## Abi filters 
+
+
+
+```
+
+android {
+    compileSdkVersion 30
+    defaultConfig {
+        applicationId "com.example.abichecking"
+        minSdkVersion 15
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        fat {
+            ndk {
+                abiFilters "armeabi", "armeabi-v7a", "x86", "mips", "x86_64", "arm64-v8a"
+            }
+        }
+
+        armeabi {
+            ndk {
+                abiFilter "armeabi"
+            }
+        }
+
+        armeabi_v7a {
+            ndk {
+                abiFilter "armeabi-v7a"
+            }
+        }
+
+        x86 {
+            ndk {
+                abiFilter "x86"
+            }
+        }
+
+        mips {
+            ndk {
+                abiFilter "mips"
+            }
+        }
+
+        x86_64 {
+            ndk {
+                abiFilter "x86_64"
+            }
+        }
+
+        arm64_v8a {
+            ndk {
+                abiFilter "arm64-v8a"
+            }
+        }
+    }
+}
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
