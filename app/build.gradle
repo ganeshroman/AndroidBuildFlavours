@@ -11,7 +11,7 @@ android {
         minSdk 26
         targetSdk 32
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         // defining the build date
         buildConfigField "long", "BUILD_DATE", System.currentTimeMillis() + "L"
@@ -104,8 +104,8 @@ android {
 
         production {
             dimension "version"
-            resValue "string", "version_app_name", "Sample App Prod"
-            resValue "string", "app_name", "App Live"
+            resValue "string", "version_app_name", "Sample App Prod $tempVersion" // tempVersion is defined in gradle.properties
+            resValue "string", "app_name", "App Live $testVersion" // testversion is defined in build.gradle (Module Level)
             //BuildConfig.BASE_URL
 
             // override the productive flag for the flavor "prod"
@@ -135,6 +135,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
