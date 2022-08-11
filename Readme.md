@@ -112,6 +112,49 @@ android {
 ```
 
 
+## Build Variables
+
+
+***PROJECT-> gradle.properties***
+
+```
+    tempVersion = '1.0.1'
+```
+
+
+***PROJECT-> build.gradle***
+
+```
+
+ext {
+    testVersion = '1.0.3'
+}
+
+```
+
+
+```
+buildTypes {
+    debug {
+        buildConfigField "String", "TEMP_VERSION", tempVersion
+    }
+
+OR
+
+buildTypes {
+    debug {
+        buildConfigField "String", "TEMP_VERSION", "$tempVersion"
+    }
+
+```
+
+
+
+
+
+
+
+
 
 
 
